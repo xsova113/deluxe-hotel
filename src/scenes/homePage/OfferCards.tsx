@@ -1,0 +1,71 @@
+import {
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  Typography,
+  Button,
+  Box,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
+
+type OfferCardsProps = {
+  image: string;
+  label: string;
+  description: string;
+};
+
+const OfferCards = ({ description, image, label }: OfferCardsProps) => {
+  const { palette } = useTheme();
+  const isLargeScreen = useMediaQuery("(min-width: 940px)");
+
+  return (
+    <Card
+      sx={{
+        width: isLargeScreen ? "400px" : "310px",
+        height: "420px",
+        ml: 1,
+        mb: 6,
+        boxShadow: 4,
+      }}
+    >
+      <Box
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"space-between"}
+        height={"100%"}
+      >
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="220"
+            image={`/assets/${image}.png`}
+            alt="offer image"
+            loading="lazy"
+          />
+
+          <CardContent>
+            <Typography gutterBottom variant="h2" component={"div"}>
+              {label}
+            </Typography>
+            <Typography color="text.secondary">{description}</Typography>
+          </CardContent>
+        </CardActionArea>
+        <Button
+          sx={{
+            bgcolor: palette.secondary.main,
+            color: "white",
+            width: "30%",
+            margin: 1,
+            ":hover": { bgcolor: palette.secondary.light },
+          }}
+        >
+          Learn more
+        </Button>
+      </Box>
+    </Card>
+  );
+};
+
+export default OfferCards;
