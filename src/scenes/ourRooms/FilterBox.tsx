@@ -1,10 +1,44 @@
-import { Button, Divider, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Autocomplete,
+  Button,
+  Divider,
+  TextField,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import FlexBetween from "@/components/FlexBetween";
 import { motion } from "framer-motion";
+import { bedCounts, bedroomCategories } from "./constants";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FilterBox = () => {
   const isLargeScreen = useMediaQuery("(min-width: 940px)");
   const { palette } = useTheme();
+  const navigate = useNavigate();
+  const [bedCount, setBedCount] = useState<number | null>(null);
+  const [category, setCategory] = useState<string | null>("");
+
+  const onSubmit = () => {
+    const searchParams = new URLSearchParams(window.location.search);
+
+    if (category) {
+      searchParams.set("category", category!);
+    } else {
+      searchParams.delete("category");
+    }
+
+    if (bedCount) {
+      searchParams.set("bedCount", bedCount!.toString());
+    } else {
+      searchParams.delete("bedCount");
+    }
+
+    const newPathname = `${window.location.pathname}?${searchParams}`;
+
+    navigate(newPathname);
+    location.reload();
+  };
 
   return (
     <FlexBetween
@@ -33,30 +67,42 @@ const FilterBox = () => {
         },
       }}
     >
+      <Autocomplete
+        onChange={(_e, newValue) => setCategory(newValue)}
+        options={bedroomCategories}
+        sx={{ width: 300 }}
+        renderInput={(params) => (
+          <TextField {...params} label="Bedroom Categories" />
+        )}
+      />
       <Divider
         flexItem
         orientation={isLargeScreen ? "vertical" : "horizontal"}
       />
-
-      <Divider
-        flexItem
-        orientation={isLargeScreen ? "vertical" : "horizontal"}
+      <Autocomplete
+        onChange={(_e, newValue) => setBedCount(newValue)}
+        options={bedCounts}
+        sx={{ width: 300 }}
+        renderInput={(params) => (
+          <TextField {...params} name="bedCounts" label="Number of Beds" />
+        )}
       />
-
       <Divider
         flexItem
         orientation={isLargeScreen ? "vertical" : "horizontal"}
       />
       <Button
+        onClick={onSubmit}
         sx={{
           bgcolor: palette.secondary.main,
           color: "white",
           fontSize: 14,
-          py: 2,
+          minWidth: "fit-content",
+          p: "1rem 1.5rem",
           ":hover": { bgcolor: palette.secondary.light },
         }}
       >
-        Filter Rooms
+        filter rooms
       </Button>
     </FlexBetween>
   );

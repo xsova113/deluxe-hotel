@@ -1,6 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { IconButton, useTheme } from "@mui/material";
 
-const IconButtons = ({ icon }: { icon: React.ReactNode }) => {
+const IconButtons = ({
+  icon,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  onClick,
+}: {
+  icon: React.ReactNode;
+  onClick?: () => void;
+}) => {
   const { palette } = useTheme();
 
   return (

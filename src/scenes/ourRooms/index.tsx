@@ -16,9 +16,9 @@ const OurRooms = () => {
       <Box
         display={"flex"}
         flexDirection={"column"}
-        height={"460px"}
+        height={460}
         color={"white"}
-        mb={10}
+        mb={isLargeScreen ? 10 : undefined}
         maxHeight={400}
       >
         <Box

@@ -6,6 +6,8 @@ import Logo from "@/components/Logo";
 import DestinationDrawer from "./DestinationDrawer";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import OccasionsDrawer from "./OccasionsDrawer";
+import BookingMenu from "./BookingMenu";
 
 const Navbar = () => {
   const isDesktopScreen = useMediaQuery("(min-width: 920px)");
@@ -40,7 +42,7 @@ const Navbar = () => {
             width={"100%"}
             bgcolor={"white"}
             zIndex={10}
-            boxShadow={8}
+            boxShadow={4}
             p={"1rem 2rem"}
             sx={{
               transitionDuration: "300ms",
@@ -48,12 +50,14 @@ const Navbar = () => {
             }}
           >
             <DestinationDrawer />
-            <Button onClick={() => navigate("/occasions")}>occasions</Button>
+            <OccasionsDrawer />
             <Button onClick={() => navigate("/ourrooms")}>our rooms</Button>
             <Logo />
-            <Button>reservation</Button>
-            <Button>platinum</Button>
+            <Button onClick={() => navigate("/reservation")}>
+              reservation
+            </Button>
             <Button onClick={() => navigate("/contact")}>contact</Button>
+            <BookingMenu />
           </FlexBetween>
         </Container>
       ) : (

@@ -56,7 +56,7 @@ const Hero = () => {
         <Typography
           color={"white"}
           variant="h1"
-          fontSize={60}
+          fontSize={isLargeScreen ? 60: 45}
           fontWeight={"bold"}
           component={motion.div}
           initial="hidden"

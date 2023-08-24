@@ -5,9 +5,9 @@ import {
   CardContent,
   Typography,
   Button,
-  Box,
   useTheme,
   useMediaQuery,
+  CardActions,
 } from "@mui/material";
 
 type OfferCardsProps = {
@@ -28,42 +28,38 @@ const OfferCards = ({ description, image, label }: OfferCardsProps) => {
         ml: 1,
         mb: 6,
         boxShadow: 4,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
       }}
     >
-      <Box
-        display={"flex"}
-        flexDirection={"column"}
-        justifyContent={"space-between"}
-        height={"100%"}
-      >
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            height="220"
-            image={`/assets/${image}.png`}
-            alt="offer image"
-            loading="lazy"
-          />
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="220"
+          image={`/assets/${image}.png`}
+          alt="offer image"
+          loading="lazy"
+        />
 
-          <CardContent>
-            <Typography gutterBottom variant="h2" component={"div"}>
-              {label}
-            </Typography>
-            <Typography color="text.secondary">{description}</Typography>
-          </CardContent>
-        </CardActionArea>
+        <CardContent>
+          <Typography gutterBottom variant="h2" component={"div"}>
+            {label}
+          </Typography>
+          <Typography color="text.secondary">{description}</Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
         <Button
           sx={{
             bgcolor: palette.secondary.main,
             color: "white",
-            width: "30%",
-            margin: 1,
             ":hover": { bgcolor: palette.secondary.light },
           }}
         >
           Learn more
         </Button>
-      </Box>
+      </CardActions>
     </Card>
   );
 };

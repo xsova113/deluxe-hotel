@@ -3,10 +3,12 @@ import DatePicker from "./DatePicker";
 import GuestPicker from "./GuestPicker";
 import FlexBetween from "./FlexBetween";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const AvailabilityBox = () => {
   const isLargeScreen = useMediaQuery("(min-width: 940px)");
   const { palette } = useTheme();
+  const navigate = useNavigate();
 
   return (
     <FlexBetween
@@ -57,6 +59,9 @@ const AvailabilityBox = () => {
           fontSize: 14,
           py: 2,
           ":hover": { bgcolor: palette.secondary.light },
+        }}
+        onClick={() => {
+          navigate("/ourRooms");
         }}
       >
         CHECK AVAILABILITY

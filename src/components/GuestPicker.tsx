@@ -6,13 +6,16 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useDispatch, useSelector } from "react-redux";
 import { setGuests } from "@/state/availSlice";
 import { RootState } from "@/state/store";
+import { guestCounts } from "@/scenes/ourRooms/constants";
 
 export default function GuestPicker() {
   const dispatch = useDispatch();
   const guests = useSelector((state: RootState) => state.availability.guests);
+  const searchParams = new URLSearchParams(window.location.search);
 
   const handleChange = (event: SelectChangeEvent) => {
-    dispatch(setGuests(event.target.value as string));
+    dispatch(setGuests(Number(event.target.value)));
+    searchParams.set("guests", event.target.value);
   };
 
   return (
@@ -22,16 +25,15 @@ export default function GuestPicker() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={guests}
+          value={guests.toString()}
           label="Guest"
           onChange={handleChange}
         >
-          <MenuItem value={1}>One</MenuItem>
-          <MenuItem value={2}>Two</MenuItem>
-          <MenuItem value={3}>Three</MenuItem>
-          <MenuItem value={4}>Four</MenuItem>
-          <MenuItem value={5}>Five</MenuItem>
-          <MenuItem value={6}>Six</MenuItem>
+          {guestCounts.map((item) => (
+            <MenuItem key={item} value={item}>
+              {item}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>

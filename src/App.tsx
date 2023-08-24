@@ -15,8 +15,10 @@ import Contact from "@/scenes/contact";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Footer from "./scenes/footer";
 import PlatinumPage from "./scenes/platinum";
-import Occasions from "./scenes/occasions";
 import OurRooms from "./scenes/ourRooms";
+import Reservation from "./scenes/reservation";
+import { Toaster } from "react-hot-toast";
+import MyBookings from "./scenes/myBookings";
 
 function App() {
   const { palette } = useTheme();
@@ -34,16 +36,18 @@ function App() {
               variables: { colorPrimary: palette.primary.main },
             }}
           >
+            <Toaster />
             <Navbar />
             <ParallaxProvider>
               <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/occasions" element={<Occasions />} />
+                <Route path="/occasions" />
                 <Route path="/aboutUs" element={<AboutUs />} />
                 <Route path="/ourRooms" element={<OurRooms />} />
-                <Route path="/reservation" />
+                <Route path="/reservation" element={<Reservation />} />
                 <Route path="/platinum" element={<PlatinumPage />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/myBookings/:id" element={<MyBookings />} />
                 <Route
                   path="/sign-in/*"
                   element={<SignIn routing="path" path="/sign-in" />}

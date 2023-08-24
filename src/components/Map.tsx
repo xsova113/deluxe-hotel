@@ -13,7 +13,7 @@ const Map = () => {
   return (
     <Box
       width={"100%"}
-      height={"450px"}
+      height={"490px"}
       flexBasis={isLargeScreen ? "65%" : undefined}
     >
       {!isLoaded ? (

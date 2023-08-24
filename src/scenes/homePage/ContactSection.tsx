@@ -2,14 +2,13 @@ import { Box, Link, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Map from "@/components/Map";
 import { Email, Phone } from "@mui/icons-material";
 
-const ContactSection = () => {
+const ContactSection = ({ isContactPage }: { isContactPage?: boolean }) => {
   const isLargeScreen = useMediaQuery("(min-width: 940px)");
   const { palette } = useTheme();
 
   return (
     <Box
-      mt={14}
-      pb={10}
+      mt={!isContactPage ? 20 : 0}
       display={"flex"}
       flexDirection={isLargeScreen ? "row" : "column-reverse"}
       gap={10}

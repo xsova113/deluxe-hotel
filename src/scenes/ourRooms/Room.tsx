@@ -1,7 +1,14 @@
 import FlexBetween from "@/components/FlexBetween";
 import { formatter } from "@/libs/util";
 import { PlayArrow } from "@mui/icons-material";
-import {  Box, Rating, Stack, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Rating,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 interface RoomProps {
   label: string;
@@ -46,27 +53,37 @@ const Room = ({
   image,
 }: RoomProps) => {
   const { palette } = useTheme();
+  const isLargeScreen = useMediaQuery("(min-width: 640px)");
 
   return (
-    <FlexBetween pt={8} pb={18} sx={{ alignItems: "start" }}>
+    <FlexBetween
+      pt={isLargeScreen ? 8 : undefined}
+      pb={isLargeScreen ? 10 : undefined}
+      px={!isLargeScreen ? 3 : undefined}
+      sx={{ alignItems: "start" }}
+      flexDirection={isLargeScreen ? "row" : "column"}
+    >
       <Box
         display={"flex"}
         alignItems={"center"}
-        sx={{ transform: "rotate(-90deg)" }}
+        sx={{
+          transform: "rotate(-90deg)",
+          visibility: isLargeScreen ? "visible" : "hidden",
+        }}
         border={`1px solid ${palette.primary.light}`}
         px={6}
         py={3}
-        mt={15}
+        mt={isLargeScreen ? 15 : undefined}
         color={palette.primary.light}
       >
         <Typography
-          mr={8}
+          mr={4}
           sx={{ transform: "rotate(90deg)" }}
           fontWeight={"bold"}
         >
           0{index}
         </Typography>
-        <Typography textTransform={"uppercase"} width={120}>
+        <Typography textTransform={"uppercase"} width={140}>
           {label}
         </Typography>
       </Box>
@@ -81,7 +98,11 @@ const Room = ({
           />
           <Typography>{reviewCounts} reviews</Typography>
         </Box>
-        <Typography variant="h2" fontWeight={"bold"}>
+        <Typography
+          variant="h2"
+          fontWeight={"bold"}
+          sx={{ color: palette.secondary.dark }}
+        >
           {title}
         </Typography>
         <Typography
@@ -105,7 +126,7 @@ const Room = ({
         </Typography>
         <Stack color={palette.primary.light}>
           <Typography fontWeight={"bold"} display={"flex"}>
-            Status:{" "}
+            Status:&nbsp;
             <Typography
               color={
                 status === "Available"
@@ -129,9 +150,11 @@ const Room = ({
         <Typography
           display={"flex"}
           fontWeight={"bold"}
-          mt={4}
+          mt={ isLargeScreen ? 4 : undefined}
+          mb={ isLargeScreen ? undefined : 2}
           textTransform={"uppercase"}
           sx={{ cursor: "pointer" }}
+          alignItems={"center"}
         >
           view detail
           <PlayArrow />

@@ -4,6 +4,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "@/components/Logo";
 import { useNavigate } from "react-router-dom";
 import DestinationDrawer from "./DestinationDrawer";
+import OccasionsDrawer from "./OccasionsDrawer";
+import BookingDrawer from "./BookingDrawer";
 
 const MobileNavbar = () => {
   const [isToggled, setIsToggled] = useState(false);
@@ -20,7 +22,10 @@ const MobileNavbar = () => {
         open={isToggled}
         onClose={() => setIsToggled(false)}
       >
-        <Logo />
+        <Box mt={3}>
+          <Logo />
+        </Box>
+
         <Box
           display={"flex"}
           flexDirection={"column"}
@@ -31,15 +36,7 @@ const MobileNavbar = () => {
           mt={4}
         >
           <DestinationDrawer />
-          <Button
-            sx={{ ":hover": { boxShadow: 2 } }}
-            onClick={() => {
-              setIsToggled(false);
-              navigate("/occasions");
-            }}
-          >
-            occasions
-          </Button>
+          <OccasionsDrawer />
           <Button
             sx={{ ":hover": { boxShadow: 2 } }}
             onClick={() => {
@@ -53,22 +50,21 @@ const MobileNavbar = () => {
             sx={{ ":hover": { boxShadow: 2 } }}
             onClick={() => {
               setIsToggled(false);
+              navigate("/reservation");
             }}
           >
-            reservations
+            reservation
           </Button>
           <Button
             sx={{ ":hover": { boxShadow: 2 } }}
-            onClick={() => setIsToggled(false)}
-          >
-            Platinum
-          </Button>
-          <Button
-            sx={{ ":hover": { boxShadow: 2 } }}
-            onClick={() => setIsToggled(false)}
+            onClick={() => {
+              navigate("/contact");
+              setIsToggled(false);
+            }}
           >
             contact
           </Button>
+          <BookingDrawer />
         </Box>
       </Drawer>
     </Box>

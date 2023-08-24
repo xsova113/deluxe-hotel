@@ -6,16 +6,22 @@ const year = new Date().getFullYear();
 const month = new Date().getMonth() + 1;
 const date = new Date().getDate();
 
-export interface CounterState {
+export interface AvailSlice {
   checkInDate: Dayjs | null;
   checkOutDate: Dayjs | null;
-  guests: string;
+  guests: number;
+  category: string;
+  roomCounts: number;
+  bedCounts: number;
 }
 
-const initialState: CounterState = {
+const initialState: AvailSlice = {
   checkInDate: dayjs(`${year}-${month === 13 ? 1 : month}-${date}`),
-  checkOutDate: dayjs(`${year}-${month === 13 ? 1 : month}-${date}`),
-  guests: "One",
+  checkOutDate: dayjs(`${year}-${month === 13 ? 1 : month + 2}-${date}`),
+  guests: 1,
+  bedCounts: 1,
+  category: "",
+  roomCounts: 1,
 };
 
 export const availSlice = createSlice({
@@ -28,14 +34,29 @@ export const availSlice = createSlice({
     setCheckOutDate: (state, action: PayloadAction<Dayjs | null>) => {
       state.checkOutDate = action.payload;
     },
-    setGuests: (state, action: PayloadAction<string>) => {
+    setCategory: (state, action: PayloadAction<string>) => {
+      state.category = action.payload;
+    },
+    setGuests: (state, action: PayloadAction<number>) => {
       state.guests = action.payload;
+    },
+    setBedCounts: (state, action: PayloadAction<number>) => {
+      state.bedCounts = action.payload;
+    },
+    setRoomCounts: (state, action: PayloadAction<number>) => {
+      state.roomCounts = action.payload;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setCheckInDate, setCheckOutDate, setGuests } =
-  availSlice.actions;
+export const {
+  setCheckInDate,
+  setCheckOutDate,
+  setGuests,
+  setBedCounts,
+  setCategory,
+  setRoomCounts,
+} = availSlice.actions;
 
 export default availSlice.reducer;

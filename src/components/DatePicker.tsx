@@ -27,7 +27,7 @@ export default function BasicDatePicker({
         <DatePicker
           label={label}
           disablePast
-          onChange={(newValue: Dayjs | null) => handleChange(newValue)}
+          onChange={(newValue: Dayjs | null) => handleChange(newValue || null)}
         />
       </DemoContainer>
     </LocalizationProvider>

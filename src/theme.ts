@@ -42,27 +42,27 @@ export const themeSettings = {
     fontFamily: ["Inter", "sans-serif"].join(","),
     fontSize: 12,
     h1: {
-      fontFamily: ["Gentium Book Plus", "serif"].join(","),
+      fontFamily: ["Playfair Display", "serif"].join(","),
       fontSize: 32,
     },
     h2: {
-      fontFamily: ["Gentium Book Plus", "serif"].join(","),
+      fontFamily: ["Playfair Display", "serif"].join(","),
       fontSize: 24,
     },
     h3: {
-      fontFamily: ["Gentium Book Plus", "serif"].join(","),
+      fontFamily: ["Playfair Display", "serif"].join(","),
       fontSize: 20,
     },
     h4: {
-      fontFamily: ["Gentium Book Plus", "serif"].join(","),
+      fontFamily: ["Playfair Display", "serif"].join(","),
       fontSize: 14,
     },
     h5: {
-      fontFamily: ["Gentium Book Plus", "serif"].join(","),
+      fontFamily: ["Playfair Display", "serif"].join(","),
       fontSize: 12,
     },
     h6: {
-      fontFamily: ["Gentium Book Plus", "serif"].join(","),
+      fontFamily: ["Playfair Display", "serif"].join(","),
       fontSize: 10,
     },
   },

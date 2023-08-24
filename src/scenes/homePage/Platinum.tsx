@@ -1,7 +1,14 @@
-import { Box, Typography, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 const Platinum = () => {
   const isLargeScreen = useMediaQuery("(min-width: 940px)");
+  const { palette } = useTheme();
 
   return (
     <Box
@@ -31,7 +38,16 @@ const Platinum = () => {
           excepteur anim.
         </Typography>
       </Box>
-
+      <Button
+        variant="contained"
+        sx={{
+          bgcolor: palette.secondary.main,
+          fontWeight: "bold",
+          ":hover": { bgcolor: palette.secondary.light },
+        }}
+      >
+        learn more
+      </Button>
       <img
         src="/assets/platinum.png"
         alt="platinum-image"

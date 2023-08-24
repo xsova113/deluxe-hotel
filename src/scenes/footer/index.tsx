@@ -10,6 +10,7 @@ import {
 import {
   Box,
   Divider,
+  IconButton,
   Input,
   InputAdornment,
   Link,
@@ -17,6 +18,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import toast from "react-hot-toast";
 import IconButtons from "./IconButtons";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -28,20 +30,26 @@ const Footer = () => {
   const isLargeScreen = useMediaQuery("(min-width: 940px)");
   const navigate = useNavigate();
   const [email, setEmail] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/newsletter", {
-        email: email,
-      });
+      setIsSubmitting(true);
+      const response = await axios.post(
+        `${import.meta.env.VITE_REACT_API_URL}/newsletters`,
+        {
+          email,
+        }
+      );
       const data = await response.data;
-
-      alert(data.message);
+      toast.success(data.message);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      alert(error.message);
+      toast.error(<Typography>{error.message}</Typography>);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -133,11 +141,14 @@ const Footer = () => {
               Sign up to get our newsletter
             </label>
             <Input
+              disabled={isSubmitting}
               type="email"
               sx={{ color: "white" }}
               endAdornment={
                 <InputAdornment position="end">
-                  <Send sx={{ color: palette.primary[300] }} />
+                  <IconButton disabled={isSubmitting} onClick={handleSubmit}>
+                    <Send sx={{ color: palette.primary[300] }} />
+                  </IconButton>
                 </InputAdornment>
               }
               placeholder="Your email..."
