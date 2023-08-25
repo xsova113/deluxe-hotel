@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { bedCounts, bedroomCategories } from "./constants";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import qs from "query-string";
 
 const FilterBox = () => {
   const isLargeScreen = useMediaQuery("(min-width: 940px)");
@@ -20,23 +21,18 @@ const FilterBox = () => {
   const [category, setCategory] = useState<string | null>("");
 
   const onSubmit = () => {
-    const searchParams = new URLSearchParams(window.location.search);
+    const url = qs.stringifyUrl(
+      {
+        url: window.location.pathname,
+        query: {
+          bedCount,
+          category,
+        },
+      },
+      { skipEmptyString: true, skipNull: true }
+    );
 
-    if (category) {
-      searchParams.set("category", category!);
-    } else {
-      searchParams.delete("category");
-    }
-
-    if (bedCount) {
-      searchParams.set("bedCount", bedCount!.toString());
-    } else {
-      searchParams.delete("bedCount");
-    }
-
-    const newPathname = `${window.location.pathname}?${searchParams}`;
-
-    navigate(newPathname);
+    navigate(url);
     location.reload();
   };
 
