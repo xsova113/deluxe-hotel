@@ -3,6 +3,7 @@ import { formatter } from "@/libs/util";
 import { PlayArrow } from "@mui/icons-material";
 import {
   Box,
+  Link,
   Rating,
   Stack,
   Typography,
@@ -147,18 +148,20 @@ const Room = ({
             <Typography color={palette.primary.main}>{guests}</Typography>
           </Typography>
         </Stack>
-        <Typography
+        <Link
+          href="/reservation"
+          underline={"none"}
           display={"flex"}
           fontWeight={"bold"}
-          mt={ isLargeScreen ? 4 : undefined}
-          mb={ isLargeScreen ? undefined : 2}
+          mt={isLargeScreen ? 4 : undefined}
+          mb={isLargeScreen ? undefined : 2}
           textTransform={"uppercase"}
           sx={{ cursor: "pointer" }}
           alignItems={"center"}
         >
-          view detail
+          reservation
           <PlayArrow />
-        </Typography>
+        </Link>
       </Stack>
 
       <Box>

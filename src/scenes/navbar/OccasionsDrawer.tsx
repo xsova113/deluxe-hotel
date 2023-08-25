@@ -45,7 +45,13 @@ const OccasionsDrawer = () => {
             flexDirection={isLargeScreen ? "row" : "column"}
           >
             {occasionDetails.map((item) => (
-              <NavCard key={item.title} image={item.image} title={item.title} />
+              <NavCard
+                key={item.title}
+                image={item.image}
+                title={item.title}
+                setIsOpen={setIsOpen}
+                pathname={item.pathname}
+              />
             ))}
           </FlexBetween>
         </FlexBetween>

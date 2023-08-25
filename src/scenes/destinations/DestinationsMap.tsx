@@ -2,13 +2,8 @@ import { Box, CircularProgress, useMediaQuery } from "@mui/material";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import { useMemo } from "react";
 
-interface MapProps {
-  lat?: number;
-  lng?: number;
-}
-
-const Map = ({ lat = 49.166592, lng = -123.133568 }: MapProps) => {
-  const center = useMemo(() => ({ lat, lng }), [lat, lng]);
+const DestinationsMap = () => {
+  const center = useMemo(() => ({ lat: 49.166592, lng: -123.133568 }), []);
   const isLargeScreen = useMediaQuery("(min-width: 940px)");
 
   const { isLoaded } = useLoadScript({
@@ -35,13 +30,15 @@ const Map = ({ lat = 49.166592, lng = -123.133568 }: MapProps) => {
         <GoogleMap
           mapContainerClassName="mapContainer"
           center={center}
-          zoom={13}
+          zoom={8}
         >
           <Marker position={center} />
+          <Marker position={{ lat: 49.246292, lng: -123.116226 }} />
+          <Marker position={{ lat: 48.407326, lng: -123.329773 }} />
         </GoogleMap>
       )}
     </Box>
   );
 };
 
-export default Map;
+export default DestinationsMap;

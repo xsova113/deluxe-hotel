@@ -79,7 +79,7 @@ const Step3 = ({ activeStep, handleNext }: Step3Props) => {
           }}
         >
           {({ values, handleChange, handleBlur, isSubmitting, errors }) => (
-            <Form style={{ display: "flex", flexDirection: "column" }}>
+            <Form id="reservation" style={{ display: "flex", flexDirection: "column" }}>
               <Box
                 display={"grid"}
                 columnGap={3}

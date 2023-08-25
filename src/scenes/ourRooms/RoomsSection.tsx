@@ -82,7 +82,7 @@ const RoomsSection = () => {
                 width: "fit-content",
                 mx: "auto",
                 bgcolor: palette.secondary.dark,
-                mt: !isLargeScreen ? 4 : undefined
+                mt: !isLargeScreen ? 4 : undefined,
               }}
               onClick={() => setIsShow(!isShow)}
             >

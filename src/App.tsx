@@ -19,6 +19,13 @@ import OurRooms from "./scenes/ourRooms";
 import Reservation from "./scenes/reservation";
 import { Toaster } from "react-hot-toast";
 import MyBookings from "./scenes/myBookings";
+import VancouverPage from "./scenes/vancouverPage";
+import RichmondPage from "./scenes/richmondPage";
+import VictoriaPage from "./scenes/victoriaPage";
+import DestinationsPage from "./scenes/destinations";
+import WeddingsPage from "./scenes/weddings";
+import CelebratePage from "./scenes/celebrate";
+import MeetPage from "./scenes/meet";
 
 function App() {
   const { palette } = useTheme();
@@ -48,6 +55,13 @@ function App() {
                 <Route path="/platinum" element={<PlatinumPage />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/myBookings/:id" element={<MyBookings />} />
+                <Route path="/vancouver" element={<VancouverPage />} />
+                <Route path="/richmond" element={<RichmondPage />} />
+                <Route path="/victoria" element={<VictoriaPage />} />
+                <Route path="/destinations" element={<DestinationsPage />} />
+                <Route path="/weddings" element={<WeddingsPage />} />
+                <Route path="/celebrate" element={<CelebratePage />} />
+                <Route path="/meet" element={<MeetPage />} />
                 <Route
                   path="/sign-in/*"
                   element={<SignIn routing="path" path="/sign-in" />}

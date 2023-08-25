@@ -35,7 +35,7 @@ const MobileNavbar = () => {
           px={3}
           mt={4}
         >
-          <DestinationDrawer />
+          <DestinationDrawer setIsToggled={setIsToggled} />
           <OccasionsDrawer />
           <Button
             sx={{ ":hover": { boxShadow: 2 } }}

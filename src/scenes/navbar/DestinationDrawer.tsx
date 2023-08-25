@@ -14,7 +14,11 @@ import NavCard from "./NavCard";
 import FlexBetween from "@/components/FlexBetween";
 import { Close } from "@mui/icons-material";
 
-const DestinationDrawer = () => {
+const DestinationDrawer = ({
+  setIsToggled,
+}: {
+  setIsToggled?: (value: boolean) => void;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { palette } = useTheme();
   const isLargeScreen = useMediaQuery("(min-width: 940px)");
@@ -40,14 +44,23 @@ const DestinationDrawer = () => {
               Discover all our best in class hotels throughout the cities of
               Canada.
             </Typography>
-            <Link textTransform={"uppercase"}>explore all on a map</Link>
+            <Link href="/destinations" textTransform={"uppercase"}>
+              explore all on a map
+            </Link>
           </Stack>
           <FlexBetween
             width={"73%"}
             flexDirection={isLargeScreen ? "row" : "column"}
           >
             {destinationDetails.map((item) => (
-              <NavCard key={item.title} image={item.image} title={item.title} />
+              <NavCard
+                key={item.title}
+                image={item.image}
+                title={item.title}
+                pathname={item.pathname}
+                setIsOpen={setIsOpen}
+                setIsToggled={setIsToggled}
+              />
             ))}
           </FlexBetween>
         </FlexBetween>
