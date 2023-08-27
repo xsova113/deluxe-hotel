@@ -52,6 +52,7 @@ const Offers = () => {
         centerMode={isLargeScreen}
       >
         <OfferCards
+          pathname="/spa"
           image={"spa"}
           label={"Spa"}
           description={
@@ -59,6 +60,7 @@ const Offers = () => {
           }
         />
         <OfferCards
+          pathname="/pool"
           image={"pool"}
           label={"Large Pool"}
           description={
@@ -66,6 +68,7 @@ const Offers = () => {
           }
         />
         <OfferCards
+          pathname="/dining"
           image={"dining"}
           label={"Best in Class Dining"}
           description={
@@ -73,6 +76,7 @@ const Offers = () => {
           }
         />
         <OfferCards
+          pathname="/ourRooms"
           image={"room"}
           label={"Luxurious Room"}
           description={
