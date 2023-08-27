@@ -1,6 +1,5 @@
 import {
   Card,
-  CardActionArea,
   CardMedia,
   CardContent,
   Typography,
