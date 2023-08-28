@@ -26,6 +26,9 @@ import DestinationsPage from "./scenes/destinations";
 import WeddingsPage from "./scenes/weddings";
 import CelebratePage from "./scenes/celebrate";
 import MeetPage from "./scenes/meet";
+import SpaPage from "./scenes/spa";
+import PoolPage from "./scenes/pool";
+import DiningPage from "./scenes/dining";
 
 function App() {
   const { palette } = useTheme();
@@ -62,6 +65,9 @@ function App() {
                 <Route path="/weddings" element={<WeddingsPage />} />
                 <Route path="/celebrate" element={<CelebratePage />} />
                 <Route path="/meet" element={<MeetPage />} />
+                <Route path="/spa" element={<SpaPage />} />
+                <Route path="/pool" element={<PoolPage />} />
+                <Route path="/dining" element={<DiningPage />} />
                 <Route
                   path="/sign-in/*"
                   element={<SignIn routing="path" path="/sign-in" />}
