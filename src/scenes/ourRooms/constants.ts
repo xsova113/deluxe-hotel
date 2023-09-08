@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export const roomsInfo = [
   {
-    id: uuidv4(),
+    id: 1,
     title: "Classic room with 1 bed",
     description:
       "Qui fugiat tempor aliquip amet sit magna. Occaecat eu sit dolore irure eiusmod excepteur aute do. Do mollit sint nostrud quis. ",
@@ -15,7 +15,7 @@ export const roomsInfo = [
     status: "7 rooms left",
   },
   {
-    id: uuidv4(),
+    id: 2,
     title: "Classic room with 2 beds",
     description:
       "Qui fugiat tempor aliquip amet sit magna. Occaecat eu sit dolore irure eiusmod excepteur aute do. Do mollit sint nostrud quis. ",
@@ -28,7 +28,7 @@ export const roomsInfo = [
     status: "Available",
   },
   {
-    id: uuidv4(),
+    id: 3,
     title: "Luxurious room with 2 beds",
     description:
       "Qui fugiat tempor aliquip amet sit magna. Occaecat eu sit dolore irure eiusmod excepteur aute do. Do mollit sint nostrud quis. ",
@@ -41,7 +41,7 @@ export const roomsInfo = [
     status: "Available",
   },
   {
-    id: uuidv4(),
+    id: 4,
     title: "Luxurious room with 1 bed",
     description:
       "Qui fugiat tempor aliquip amet sit magna. Occaecat eu sit dolore irure eiusmod excepteur aute do. Do mollit sint nostrud quis. ",
@@ -54,7 +54,7 @@ export const roomsInfo = [
     status: "Available",
   },
   {
-    id: uuidv4(),
+    id: 5,
     title: "Supreme room with 1 bed",
     description:
       "Qui fugiat tempor aliquip amet sit magna. Occaecat eu sit dolore irure eiusmod excepteur aute do. Do mollit sint nostrud quis. ",
@@ -67,7 +67,7 @@ export const roomsInfo = [
     status: "3 rooms left",
   },
   {
-    id: uuidv4(),
+    id: 6,
     title: "Supreme room with 1 bed",
     description:
       "Qui fugiat tempor aliquip amet sit magna. Occaecat eu sit dolore irure eiusmod excepteur aute do. Do mollit sint nostrud quis. ",
@@ -80,7 +80,7 @@ export const roomsInfo = [
     status: "Available",
   },
   {
-    id: uuidv4(),
+    id: 7,
     title: "Classic room with 1 bed",
     description:
       "Qui fugiat tempor aliquip amet sit magna. Occaecat eu sit dolore irure eiusmod excepteur aute do. Do mollit sint nostrud quis. ",
