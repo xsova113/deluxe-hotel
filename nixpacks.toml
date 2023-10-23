@@ -23,7 +23,7 @@ dependsOn = [
   'caddy',
 ] # make sure this phase runs after the 'caddy' phase so that we know we have caddy downloaded
 cmds = [
-  'caddy fmt --overwrite Caddyfile',
+  'caddy fmt --overwrite CaddyFile',
 ] # format the Caddyfile to fix any formatting inconsistencies
 
 # copy caddy and build artifacts to a new image and start the caddy web server
