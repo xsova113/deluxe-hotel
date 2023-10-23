@@ -31,7 +31,7 @@ cmds = [
 runImage = 'ubuntu:20.04' # use a new ubuntu image to run the caddy server in
 onlyIncludeFiles = [
   'caddy',
-  'Caddyfile',
+  'Caddyfile'
   'CaddyFile'
   'dist',
 ] # copy only the needed files and folders into the new image (Vite builds to a 'dist' folder)
