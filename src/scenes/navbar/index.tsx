@@ -5,32 +5,14 @@ import MobileNavbar from "./MobileNavbar";
 import Logo from "@/components/Logo";
 import DestinationDrawer from "./DestinationDrawer";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import OccasionsDrawer from "./OccasionsDrawer";
 import BookingMenu from "./BookingMenu";
+import { useScrollTrigger } from "@/hooks/use-scroll-trigger";
 
 const Navbar = () => {
   const isDesktopScreen = useMediaQuery("(min-width: 920px)");
   const navigate = useNavigate();
-
-  const [show, setShow] = useState(true);
-
-  useEffect(() => {
-    let previousScrollPosition = 0;
-    let currentScrollPosition = 0;
-
-    window.addEventListener("scroll", function () {
-      currentScrollPosition = window.scrollY;
-
-      if (previousScrollPosition - currentScrollPosition < 0) {
-        setShow(false);
-      } else if (previousScrollPosition - currentScrollPosition > 0) {
-        setShow(true);
-      }
-
-      previousScrollPosition = currentScrollPosition;
-    });
-  }, []);
+  const show = useScrollTrigger();
 
   return (
     <Box bgcolor={"white"}>
